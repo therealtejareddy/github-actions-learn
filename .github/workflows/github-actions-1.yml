@@ -7,3 +7,5 @@ jobs:
     uses: ./.github/workflows/reusable-workflow-1.yml
     with:
       name: Teja
+    secrets:
+      secret_key: ${{ secrets.SECRET_KEY }}

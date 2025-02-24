@@ -8,6 +8,11 @@ on:
         required: true
         default: 'Teja'
         type: string
+    secrets:
+      secret_key:
+        description: 'Secret key'
+        required: true
+
     
 jobs:
   job_1:
@@ -17,16 +22,10 @@ jobs:
         run: echo "Hello world from reusable workflow 1 job 1"
   job_2:
     needs: [job_1]
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Print Name
-        run: echo "Hello world from ${{ inputs.name }} reusable workflow 1 job 2"
-  job_3:
-    needs: [job_2]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print Hello world
-        run: echo "Hello world from reusable workflow 1 job 2"
+        run: echo "Name- ${{ inputs.name }}, Secret-${{ secrets.secret_key }} reusable workflow 1 job 2"
   job_4:
     runs-on: ubuntu-latest
     if: ${{ always() }}
