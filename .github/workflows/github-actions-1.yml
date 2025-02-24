@@ -1,0 +1,7 @@
+name: Github Actions 1
+on:
+  push:
+
+jobs:
+  checkout_to_code:
+    uses: ./reusable-workflow-1.yml
