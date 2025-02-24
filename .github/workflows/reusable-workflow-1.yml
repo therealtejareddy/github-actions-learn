@@ -2,6 +2,12 @@ name: Reusable Workflow 1
 
 on:
   workflow_call:
+    inputs:
+      name:
+        description: 'Name of the person'
+        required: true
+        default: 'Teja'
+        type: string
     
 jobs:
   job_1:
@@ -13,8 +19,8 @@ jobs:
     needs: [job_1]
     runs-on: ubuntu-latest
     steps:
-      - name: Print Hello world
-        run: echo "Hello world from reusable workflow 1 job 2"
+      - name: Print Name
+        run: echo "Hello world from ${{ inputs.username }} reusable workflow 1 job 2"
   job_3:
     needs: [job_2]
     runs-on: ubuntu-latest
