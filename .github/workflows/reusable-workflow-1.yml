@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print Name
-        run: echo "Hello world from ${{ inputs.username }} reusable workflow 1 job 2"
+        run: echo "Hello world from ${{ inputs.name }} reusable workflow 1 job 2"
   job_3:
     needs: [job_2]
     runs-on: ubuntu-latest
